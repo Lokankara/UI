@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WebDriverConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">executor-service</a> &gt; <a href="index.source.html" class="el_package">executor.service.model</a> &gt; <span class="el_source">WebDriverConfig.java</span></div><h1>WebDriverConfig.java</h1><pre class="source lang-java linenums">package executor.service.model;
+
+import java.util.Objects;
+
+public class WebDriverConfig {
+    private String webDriverExecutable;
+    private String userAgent;
+    private Long pageLoadTimeout;
+    private Long implicitlyWait;
+
+<span class="fc" id="L11">    public WebDriverConfig() {</span>
+<span class="fc" id="L12">    }</span>
+
+<span class="fc" id="L14">    public WebDriverConfig(String webDriverExecutable, String userAgent, Long pageLoadTimeout, Long implicitlyWait) {</span>
+<span class="fc" id="L15">        this.webDriverExecutable = webDriverExecutable;</span>
+<span class="fc" id="L16">        this.userAgent = userAgent;</span>
+<span class="fc" id="L17">        this.pageLoadTimeout = pageLoadTimeout;</span>
+<span class="fc" id="L18">        this.implicitlyWait = implicitlyWait;</span>
+<span class="fc" id="L19">    }</span>
+
+    public String getWebDriverExecutable() {
+<span class="fc" id="L22">        return webDriverExecutable;</span>
+    }
+
+    public void setWebDriverExecutable(String webDriverExecutable) {
+<span class="fc" id="L26">        this.webDriverExecutable = webDriverExecutable;</span>
+<span class="fc" id="L27">    }</span>
+
+    public String getUserAgent() {
+<span class="fc" id="L30">        return userAgent;</span>
+    }
+
+    public void setUserAgent(String userAgent) {
+<span class="fc" id="L34">        this.userAgent = userAgent;</span>
+<span class="fc" id="L35">    }</span>
+
+    public Long getPageLoadTimeout() {
+<span class="fc" id="L38">        return pageLoadTimeout;</span>
+    }
+
+    public void setPageLoadTimeout(Long pageLoadTimeout) {
+<span class="fc" id="L42">        this.pageLoadTimeout = pageLoadTimeout;</span>
+<span class="fc" id="L43">    }</span>
+
+    public Long getImplicitlyWait() {
+<span class="fc" id="L46">        return implicitlyWait;</span>
+    }
+
+    public void setImplicitlyWait(Long implicitlyWait) {
+<span class="fc" id="L50">        this.implicitlyWait = implicitlyWait;</span>
+<span class="fc" id="L51">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">        if (this == o) return true;</span>
+<span class="pc bpc" id="L56" title="2 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L57">        WebDriverConfig that = (WebDriverConfig) o;</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        return Objects.equals(webDriverExecutable, that.webDriverExecutable) &amp;&amp;</span>
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">                Objects.equals(userAgent, that.userAgent) &amp;&amp;</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">                Objects.equals(pageLoadTimeout, that.pageLoadTimeout) &amp;&amp;</span>
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">                Objects.equals(implicitlyWait, that.implicitlyWait);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L66">        return Objects.hash(webDriverExecutable, userAgent, pageLoadTimeout, implicitlyWait);</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L71">        return &quot;WebDriverConfig{&quot; +</span>
+                &quot;webDriverExecutable='&quot; + webDriverExecutable + '\'' +
+                &quot;, userAgent='&quot; + userAgent + '\'' +
+                &quot;, pageLoadTimeout=&quot; + pageLoadTimeout +
+                &quot;, implicitlyWait=&quot; + implicitlyWait +
+                '}';
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
