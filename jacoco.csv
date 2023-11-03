@@ -1,7 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-executor-service,executor.service.model,WebDriverConfig,5,120,7,7,0,29,7,13,0,13
-executor-service,executor.service.model,Step,44,29,10,0,10,7,9,4,4,4
-executor-service,executor.service.model,ThreadPoolConfig,4,72,2,6,0,17,2,11,0,9
-executor-service,executor.service.model,ProxyCredentials,73,0,10,0,18,0,13,0,8,0
-executor-service,executor.service.model,ProxyNetworkConfig,6,88,5,7,2,25,5,10,0,9
-executor-service,executor.service.model,Scenario,20,74,6,6,8,15,10,6,4,6
