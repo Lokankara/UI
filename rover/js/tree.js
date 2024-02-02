@@ -1,7 +1,8 @@
+const max = 5;
+
 function printTree() {
     let tree = '';
     let i ;
-    const max = 10;
     for (i = 0; i < max; i++) {
         tree += (' '.repeat(max- 1 - i))
             + '/' + (i !== max - 1

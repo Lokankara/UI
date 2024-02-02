@@ -7,12 +7,14 @@ import java.util.NoSuchElementException;
 public class Conditions {
 
     private final static Random rnd = new Random();
+    
     public static void main(String[] args) {
+        
         task1();
         task2();
         task3();
-        guess();
-        game();
+        // guess();
+        // game();
     }
 
     public static void task1() {
@@ -37,32 +39,31 @@ public class Conditions {
 
         display(a, b, "task 2");
 
-        if ((a + b) % 2 == 0) {
-            System.out.println("maybe a and b are even");
-        } else {
-            System.out.println("some variable is odd");
-        }
+        System.out.printf(
+            "%s%n",
+            (a + b) % 2 == 0
+            ? "maybe a and b are even"
+            : "some variable is odd");
     }
 
     public static void task3() {
         System.out.printf("%n--------------- %s ---------------%n", "task 3");
-        int a = rnd.nextInt(50);
+            private final static Random rnd = new Random();
+        int a = new Random().nextInt(101);
 
-        System.out.printf("a = %s%n", a);
-        
         if (a > 10) {
-            System.out.println("greater than 10");
+            System.out.printf("%s - %s%n", a, " > 10");
         }
         if (a < 100) {
-            System.out.println("less than 100");
+            System.out.printf("%s - %s%n", a, " < 100");
         }
-        if (a / 2 > 20) {
-            System.out.println("the result of division by 2 is greater than 20");
+        if (a * 1.0 / 2 > 20) {
+            System.out.printf("%s - %s%n", a, " a / 2 > 20");
         }
-        if (a >= 5 && a <= 40) {
-            System.out.println("the value of the variable between 5 and 40 inclusive");
+        if (a > 4 && a < 41) {
+            System.out.printf("%s - %s%n", a, "a > 4 && a < 41");
         } else {
-            System.out.println("the value of the variable is less than 5 or greater than 40");
+            System.out.printf("%s - %s%n", a, "a < 5 || a > 40");
         }
     }
 
@@ -140,7 +141,7 @@ while (!isGuessed && attempts < MAX_ATTEMPTS) {
                     }
                 } catch (NoSuchElementException e) {
                     System.out.println("Invalid input. Please enter '+', '-', or '0'.");
-                    scanner.nextLine(); // consume the invalid input
+                    scanner.nextLine();
                 }
             }
 
