@@ -1,6 +1,6 @@
 let jsonData = [
     {
-        "imageSrc": "img1.png",
+        "imageSrc": "https://raw.githubusercontent.com/Lokankara/Images/master/cars/car/img1.png",
         "title": "Ferrari",
         "description": "Ferrari is an Italian luxury sports car manufacturer based in Maranello.",
         "details": [
@@ -10,7 +10,7 @@ let jsonData = [
         ]
     },
     {
-        "imageSrc": "img3.png",
+        "imageSrc": "https://raw.githubusercontent.com/Lokankara/Images/master/cars/car/img3.png",
         "title": "Porsche",
         "description": "Porsche is a German sports car and luxury car manufacturer.",
         "details": [
@@ -20,7 +20,7 @@ let jsonData = [
         ]
     },
     {
-        "imageSrc": "img2.png",
+        "imageSrc": "https://raw.githubusercontent.com/Lokankara/Images/master/cars/car/img2.png",
         "title": "Lamborghini",
         "description": "Lamborghini is an Italian brand and manufacturer of luxury sports cars.",
         "details": [
