@@ -1,0 +1,6 @@
+[Matrix](https://raw.githack.com/Lokankara/UI/master/sliders/matrix-rain/index.html)
+[AirPods](https://raw.githack.com/Lokankara/UI/master/sliders/airPods/index.html)
+[Cars](https://raw.githack.com/Lokankara/UI/master/sliders/car/index.html)
+[Dots](https://raw.githack.com/Lokankara/UI/master/sliders/connecting-dot/index.html)
+[Owl](https://raw.githack.com/Lokankara/UI/master/sliders/owl/index.html)
+[Trailes](https://raw.githack.com/Lokankara/UI/master/sliders/trailer/index.html)
