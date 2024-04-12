@@ -1,0 +1,130 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0px;
+  padding: 0;
+}
+
+#slider {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  box-sizing: border-box;
+  margin: auto;
+  border-radius: 100px;
+}
+
+.items {
+  transition: margin-left 0.5s ease-in-out;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.item img {
+  max-height: 100%;
+  display: block;
+  object-fit: cover;
+  margin: auto;
+  border-radius: 100px;
+}
+
+li.item {
+  box-sizing: border-box;
+  background: white;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  overflow: hidden;
+  transform: scale(0.95);
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.disabled {
+  color: #ddd;
+  cursor: default;
+  cursor: not-allowed;
+}
+
+.arrow-right,
+.arrow-left {
+  cursor: pointer;
+  font-size: 30px;
+  transform: scale(1);
+}
+
+.arrow-right:hover,
+.arrow-left:hover {
+  transform: scale(1.2);
+}
+
+.wrapper-slider {
+  position: relative;
+  width: 90%;
+  margin: 100px auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.wrapper-slider .arrow-left,
+.wrapper-slider .arrow-right {
+  margin: 0 20px;
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  height: 50px;
+  width: 50px;
+  z-index: 999;
+  cursor: pointer;
+  left: -50px;
+}
+
+.wrapper-slider 
+.arrow-right {
+  right: -50px;
+  left: auto;
+}
+
+.items .item {
+  color: #fff;
+  width: 200px;
+  height: 200px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 50px;
+}
+
+.items.active {
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
+
+.wrapper-slider .arrow-left,
+.wrapper-slider .arrow-right,
+.items,
+.items .item {
+  transition: all 0.2s ease-in-out;
+}
