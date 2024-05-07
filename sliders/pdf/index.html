@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Slider</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="slider-container">
+    <button class="prev-btn" onclick="changeSlide(-1)">Previous</button>
+    <div class="slides">
+      <embed id="pdf-1" src="LuxCampus.pdf" type="application/pdf" width="100%" height="900px">
+      <embed id="pdf-2" src="Sigma-Java_Run.pdf" type="application/pdf" width="100%"height="900px">
+      <embed id="pdf-3" src="Core_1.pdf" type="application/pdf" width="100%"height="900px">
+      <embed id="pdf-4" src="Practice_2.pdf" type="application/pdf" width="100%"height="900px">
+      <embed id="pdf-5" src="Test_Automation_Certificate.pdf" type="application/pdf" width="100%"height="900px">
+    </div>
+    <button class="next-btn" onclick="changeSlide(1)">Next</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
