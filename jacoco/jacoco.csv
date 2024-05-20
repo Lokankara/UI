@@ -1,0 +1,7 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+speak_ukraine,dao,DBUtil,0,5,0,0,0,1,0,1,0,1
+speak_ukraine,dao,CategoryDB,15,235,6,10,6,55,7,8,1,6
+speak_ukraine,dao,ChildDB,14,208,2,8,5,51,3,10,1,7
+speak_ukraine,model,Club,52,0,0,0,21,0,14,0,14,0
+speak_ukraine,model,Category,0,18,0,0,0,3,0,2,0,2
+speak_ukraine,model,Child,8,26,0,0,2,3,1,2,1,2
