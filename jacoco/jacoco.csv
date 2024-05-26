@@ -2,9 +2,8 @@ GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_
 mockito,exception,ValidationException,3,4,0,0,2,2,1,1,1,1
 mockito,exception,EntityNotFoundException,4,7,0,0,2,2,1,1,1,1
 mockito,dao,DBUtil,25,0,0,0,7,0,3,0,3,0
-mockito,dao,CategoryDB,7,220,4,8,1,52,4,9,0,7
-mockito,dao,Class1,7,0,0,0,3,0,2,0,2,0
-mockito,dao,ChildDB,86,227,7,11,23,59,9,11,3,8
+mockito,dao,CategoryDB,7,210,4,8,1,50,4,9,0,7
+mockito,dao,ChildDB,48,252,7,11,11,65,7,12,1,9
 mockito,service,ChildService,0,171,0,12,0,39,0,11,0,5
 mockito,service,CategoryService,0,119,0,6,0,30,0,7,0,4
 mockito,model,Club,45,0,0,0,19,0,13,0,13,0

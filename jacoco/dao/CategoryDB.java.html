@@ -3,8 +3,6 @@
 import exception.EntityNotFoundException;
 import model.Category;
 import org.postgresql.util.PSQLException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,89 +12,85 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class CategoryDB {
     private Connection conn;
 
-<span class="fc" id="L21">    private final Logger log = LoggerFactory.getLogger(CategoryDB.class);</span>
-
-<span class="fc" id="L23">    public CategoryDB(Connection conn) {</span>
-<span class="fc" id="L24">        this.conn = conn;</span>
-<span class="fc" id="L25">    }</span>
+<span class="fc" id="L18">    public CategoryDB(Connection conn) {</span>
+<span class="fc" id="L19">        this.conn = conn;</span>
+<span class="fc" id="L20">    }</span>
 
     public Category add(Category category) throws SQLException {
-<span class="fc" id="L28">        String query = &quot;INSERT INTO categories (avatar, title) VALUES (?, ?);&quot;;</span>
-<span class="fc" id="L29">        try (PreparedStatement pst = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {</span>
-<span class="fc" id="L30">            pst.setString(1, category.avatar());</span>
-<span class="fc" id="L31">            pst.setString(2, category.title());</span>
-<span class="fc" id="L32">            pst.executeUpdate();</span>
-<span class="fc" id="L33">            ResultSet rs = pst.getGeneratedKeys();</span>
-<span class="pc bpc" id="L34" title="1 of 2 branches missed.">            if (rs.next()) {</span>
-<span class="fc" id="L35">                Long id = rs.getLong(1);</span>
-<span class="fc" id="L36">                return new Category(id, category.avatar(), category.title());</span>
+<span class="fc" id="L23">        String query = &quot;INSERT INTO categories (avatar, title) VALUES (?, ?);&quot;;</span>
+<span class="fc" id="L24">        try (PreparedStatement pst = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {</span>
+<span class="fc" id="L25">            pst.setString(1, category.avatar());</span>
+<span class="fc" id="L26">            pst.setString(2, category.title());</span>
+<span class="fc" id="L27">            pst.executeUpdate();</span>
+<span class="fc" id="L28">            ResultSet rs = pst.getGeneratedKeys();</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">            if (rs.next()) {</span>
+<span class="fc" id="L30">                Long id = rs.getLong(1);</span>
+<span class="fc" id="L31">                return new Category(id, category.avatar(), category.title());</span>
             } else {
-<span class="nc" id="L38">                throw new SQLException(&quot;Failed to retrieve generated keys for category insertion.&quot;);</span>
+<span class="nc" id="L33">                throw new SQLException(&quot;Failed to retrieve generated keys for category insertion.&quot;);</span>
             }
-<span class="fc" id="L40">        } catch (PSQLException e) {</span>
-<span class="fc" id="L41">            log.error(&quot;Category with the same title already exists: {}&quot;, category.title());</span>
-<span class="fc" id="L42">            return null;</span>
+<span class="fc" id="L35">        } catch (PSQLException e) {</span>
+<span class="fc" id="L36">            return null;</span>
         }
     }
 
     public boolean update(Category category) throws SQLException {
-<span class="fc" id="L47">        String query = &quot;update categories set avatar = ?, title = ? where id = ?;&quot;;</span>
-<span class="fc" id="L48">        try (PreparedStatement pst = conn.prepareStatement(query);) {</span>
-<span class="fc" id="L49">            pst.setString(1, category.avatar());</span>
-<span class="fc" id="L50">            pst.setString(2, category.title());</span>
-<span class="fc" id="L51">            pst.setLong(3, category.id());</span>
-<span class="fc" id="L52">            int affectedRows = pst.executeUpdate();</span>
-<span class="pc bpc" id="L53" title="1 of 2 branches missed.">            return affectedRows == 1;</span>
+<span class="fc" id="L41">        String query = &quot;update categories set avatar = ?, title = ? where id = ?;&quot;;</span>
+<span class="fc" id="L42">        try (PreparedStatement pst = conn.prepareStatement(query);) {</span>
+<span class="fc" id="L43">            pst.setString(1, category.avatar());</span>
+<span class="fc" id="L44">            pst.setString(2, category.title());</span>
+<span class="fc" id="L45">            pst.setLong(3, category.id());</span>
+<span class="fc" id="L46">            int affectedRows = pst.executeUpdate();</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">            return affectedRows == 1;</span>
         }
     }
 
     public boolean delete(Long id) throws SQLException {
-<span class="fc" id="L58">        String query = &quot;delete from categories where id = ?;&quot;;</span>
-<span class="fc" id="L59">        try (PreparedStatement pst = conn.prepareStatement(query)) {</span>
-<span class="fc" id="L60">            pst.setLong(1, id);</span>
-<span class="fc" id="L61">            int affectedRows = pst.executeUpdate();</span>
-<span class="pc bpc" id="L62" title="1 of 2 branches missed.">            return affectedRows == 1;</span>
+<span class="fc" id="L52">        String query = &quot;delete from categories where id = ?;&quot;;</span>
+<span class="fc" id="L53">        try (PreparedStatement pst = conn.prepareStatement(query)) {</span>
+<span class="fc" id="L54">            pst.setLong(1, id);</span>
+<span class="fc" id="L55">            int affectedRows = pst.executeUpdate();</span>
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">            return affectedRows == 1;</span>
         }
     }
 
     public List&lt;Category&gt; titlePart(String titlePart) throws SQLException {
-<span class="fc" id="L67">        String query = &quot;SELECT * FROM categories where lower(title) like ?&quot;;</span>
-<span class="fc" id="L68">        try (PreparedStatement statement = conn.prepareStatement(query);) {</span>
-<span class="fc" id="L69">            statement.setString(1, &quot;%&quot; + titlePart.toLowerCase() + &quot;%&quot;);</span>
-<span class="fc" id="L70">            ResultSet rs = statement.executeQuery();</span>
-<span class="fc" id="L71">            return fromResultSet(rs);</span>
+<span class="fc" id="L61">        String query = &quot;SELECT * FROM categories where lower(title) like ?&quot;;</span>
+<span class="fc" id="L62">        try (PreparedStatement statement = conn.prepareStatement(query);) {</span>
+<span class="fc" id="L63">            statement.setString(1, &quot;%&quot; + titlePart.toLowerCase() + &quot;%&quot;);</span>
+<span class="fc" id="L64">            ResultSet rs = statement.executeQuery();</span>
+<span class="fc" id="L65">            return fromResultSet(rs);</span>
         }
     }
 
     private static List&lt;Category&gt; fromResultSet(ResultSet rs) throws SQLException {
-<span class="fc" id="L76">        List&lt;Category&gt; categories = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L77" title="All 2 branches covered.">        while (rs.next()) {</span>
-<span class="fc" id="L78">            Long id = rs.getLong(&quot;id&quot;);</span>
-<span class="fc" id="L79">            String avatar = rs.getString(&quot;avatar&quot;);</span>
-<span class="fc" id="L80">            String title = rs.getString(&quot;title&quot;);</span>
-<span class="fc" id="L81">            Category category = new Category(id, avatar, title);</span>
+<span class="fc" id="L70">        List&lt;Category&gt; categories = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        while (rs.next()) {</span>
+<span class="fc" id="L72">            Long id = rs.getLong(&quot;id&quot;);</span>
+<span class="fc" id="L73">            String avatar = rs.getString(&quot;avatar&quot;);</span>
+<span class="fc" id="L74">            String title = rs.getString(&quot;title&quot;);</span>
+<span class="fc" id="L75">            Category category = new Category(id, avatar, title);</span>
 
-<span class="fc" id="L83">            categories.add(category);</span>
-<span class="fc" id="L84">        }</span>
-<span class="fc" id="L85">        return categories;</span>
+<span class="fc" id="L77">            categories.add(category);</span>
+<span class="fc" id="L78">        }</span>
+<span class="fc" id="L79">        return categories;</span>
     }
 
     public Category getById(Long id) throws SQLException {
-<span class="fc" id="L89">        String query = &quot;SELECT * FROM categories where id = ?&quot;;</span>
-<span class="fc" id="L90">        try (PreparedStatement statement = conn.prepareStatement(query);) {</span>
-<span class="fc" id="L91">            statement.setLong(1, id);</span>
-<span class="fc" id="L92">            ResultSet rs = statement.executeQuery();</span>
-<span class="fc bfc" id="L93" title="All 2 branches covered.">            while (rs.next()) {</span>
-<span class="fc" id="L94">                String avatar = rs.getString(&quot;avatar&quot;);</span>
-<span class="fc" id="L95">                String title = rs.getString(&quot;title&quot;);</span>
-<span class="fc" id="L96">                return new Category(id, avatar, title);</span>
+<span class="fc" id="L83">        String query = &quot;SELECT * FROM categories where id = ?&quot;;</span>
+<span class="fc" id="L84">        try (PreparedStatement statement = conn.prepareStatement(query);) {</span>
+<span class="fc" id="L85">            statement.setLong(1, id);</span>
+<span class="fc" id="L86">            ResultSet rs = statement.executeQuery();</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">            while (rs.next()) {</span>
+<span class="fc" id="L88">                String avatar = rs.getString(&quot;avatar&quot;);</span>
+<span class="fc" id="L89">                String title = rs.getString(&quot;title&quot;);</span>
+<span class="fc" id="L90">                return new Category(id, avatar, title);</span>
             }
-<span class="pc bpc" id="L98" title="1 of 2 branches missed.">        }</span>
-<span class="fc" id="L99">        throw new EntityNotFoundException(Category.class, id);</span>
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">        }</span>
+<span class="fc" id="L93">        throw new EntityNotFoundException(Category.class, id);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
