@@ -44,19 +44,19 @@ public class ChildDB {
     }
 
     public boolean update(Child child) throws SQLException {
-<span class="nc bnc" id="L47" title="All 2 branches missed.">        long id = child.id() == null ? 0 : child.id();</span>
-<span class="nc" id="L48">        String query = &quot;update child set first_name = ?, last_name = ?, birth_date = ? where id = ?;&quot;;</span>
-<span class="nc" id="L49">        PreparedStatement pst = conn.prepareStatement(query);</span>
-<span class="nc" id="L50">        pst.setString(1, child.firstName());</span>
-<span class="nc" id="L51">        pst.setString(2, child.lastName());</span>
-<span class="nc" id="L52">        java.sql.Date date = null;</span>
-<span class="nc bnc" id="L53" title="All 2 branches missed.">        if (child.birthDate() != null) {</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        long id = child.id() == null ? 0 : child.id();</span>
+<span class="fc" id="L48">        String query = &quot;update child set first_name = ?, last_name = ?, birth_date = ? where id = ?;&quot;;</span>
+<span class="fc" id="L49">        PreparedStatement pst = conn.prepareStatement(query);</span>
+<span class="fc" id="L50">        pst.setString(1, child.firstName());</span>
+<span class="fc" id="L51">        pst.setString(2, child.lastName());</span>
+<span class="fc" id="L52">        java.sql.Date date = null;</span>
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">        if (child.birthDate() != null) {</span>
 <span class="nc" id="L54">            date = java.sql.Date.valueOf(child.birthDate());</span>
         }
-<span class="nc" id="L56">        pst.setDate(3, date);</span>
-<span class="nc" id="L57">        pst.setLong(4, id);</span>
-<span class="nc" id="L58">        int affectedRows = pst.executeUpdate();</span>
-<span class="nc bnc" id="L59" title="All 2 branches missed.">        return affectedRows == 1;</span>
+<span class="fc" id="L56">        pst.setDate(3, date);</span>
+<span class="fc" id="L57">        pst.setLong(4, id);</span>
+<span class="fc" id="L58">        int affectedRows = pst.executeUpdate();</span>
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">        return affectedRows == 1;</span>
     }
 
 

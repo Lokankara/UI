@@ -3,8 +3,8 @@
 public class EntityNotFoundException extends RuntimeException {
 
     public &lt;T&gt; EntityNotFoundException(Class&lt;T&gt; clazz, long id) {
-<span class="nc" id="L6">        super(&quot;Doesn't exists &quot; + clazz.toString() + &quot; with id = &quot; + id);</span>
-<span class="nc" id="L7">    }</span>
+<span class="fc" id="L6">        super(&quot;Doesn't exists &quot; + clazz.toString() + &quot; with id = &quot; + id);</span>
+<span class="fc" id="L7">    }</span>
 
     public EntityNotFoundException(String message) {
 <span class="nc" id="L10">        super(message);</span>
